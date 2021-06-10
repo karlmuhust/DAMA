@@ -43,16 +43,22 @@ const AnotherBox = styled.div`
   border-radius: 50%;
   background-color: black;
   position: fixed;
-  left: 10vw;
-  top: 10vw;
+  top: 50%;
   transform: translate(-50%, -50%);
+  animation: mymove 10s infinite;
+
+  @keyframes mymove {
+    0% {left: 0%;}
+    50% {left: 100%;}
+    100% {left: 0%;}
+  }
 `
 
 const Layer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #613336;
+  background-color: #ff3f4c;
   z-index: 2;
   mix-blend-mode: multiply;
 `
