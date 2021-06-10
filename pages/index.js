@@ -37,6 +37,17 @@ const Box = styled.div`
   transform: translate(-50%, -50%);
 `
 
+const AnotherBox = styled.div`
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  background-color: black;
+  position: fixed;
+  left: 10vw;
+  top: 10vw;
+  transform: translate(-50%, -50%);
+`
+
 const Layer = styled.div`
   position: fixed;
   width: 100%;
@@ -60,6 +71,8 @@ export default function Home() {
 
         <Main>
           <Title>DAMA</Title>
+
+          <AnotherBox />
 
           <Box style={{"--mouseX": posX + "px", "--mouseY": posY + "px", }}/>
         </Main>
