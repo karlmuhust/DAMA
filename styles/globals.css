@@ -2,7 +2,7 @@
   font-family: 'ABC Maxi Plus Variable Trial';
   src: url('/fonts/ABCMaxiPlusVariableTrial-Regular.woff2') format('woff2'),
       url('/fonts/ABCMaxiPlusVariableTrial-Regular.woff') format('woff');
-  font-weight: normal;
+  font-weight: 100 1000;
   font-style: normal;
   font-display: swap;
 }
