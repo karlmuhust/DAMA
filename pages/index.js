@@ -21,48 +21,48 @@ const Main = styled.main`
   }
 `
 
-// const Title = styled.h1`
-//   font-size: 13vw;
-//   margin: 0;
-//   font-weight: 400;
-// `
+const Title = styled.h1`
+  font-size: 13vw;
+  margin: 0;
+  font-weight: 400;
+`
 
-// const Box = styled.div`
-//   width: 10vw;
-//   height: 10vw;
-//   border-radius: 50%;
-//   background-color: black;
-//   position: fixed;
-//   left: var(--mouseX);
-//   top: var(--mouseY);
-//   transform: translate(-50%, -50%);
-// `
+const Box = styled.div`
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  background-color: black;
+  position: fixed;
+  left: var(--mouseX);
+  top: var(--mouseY);
+  transform: translate(-50%, -50%);
+`
 
-// const AnotherBox = styled.div`
-//   width: 10vw;
-//   height: 10vw;
-//   border-radius: 50%;
-//   background-color: black;
-//   position: fixed;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   animation: mymove 10s infinite;
+const AnotherBox = styled.div`
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  background-color: black;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: mymove 10s infinite;
 
-//   @keyframes mymove {
-//     0% {left: 0%;}
-//     50% {left: 100%;}
-//     100% {left: 0%;}
-//   }
-// `
+  @keyframes mymove {
+    0% {left: 0%;}
+    50% {left: 100%;}
+    100% {left: 0%;}
+  }
+`
 
-// const Layer = styled.div`
-//   position: fixed;
-//   width: 100%;
-//   height: 100%;
-//   background-color: #ff3f4c;
-//   z-index: 2;
-//   mix-blend-mode: multiply;
-// `
+const Layer = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #ff3f4c;
+  z-index: 2;
+  mix-blend-mode: multiply;
+`
 
 export default function Home() {
   const { posX, posY } = useMousePos();
