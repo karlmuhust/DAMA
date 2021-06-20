@@ -1,0 +1,55 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
+button {
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+}
+
+ul,
+ol {
+	margin: 0;
+}
+
+blockquote {
+	margin: 0;
+}

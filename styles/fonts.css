@@ -2,26 +2,7 @@
   font-family: 'ABC Maxi Plus Variable Trial';
   src: url('/fonts/ABCMaxiPlusVariableTrial-Regular.woff2') format('woff2'),
       url('/fonts/ABCMaxiPlusVariableTrial-Regular.woff') format('woff');
-  font-weight: 100 1000;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
-
-
-html,
-body {
-  font-family: 'ABC Maxi Plus Variable Trial';
-  padding: 0;
-  margin: 0;
-cursor: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
