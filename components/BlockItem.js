@@ -10,6 +10,8 @@ const Title = styled.h2`
   padding-top: var(--content-spacing);
   margin-bottom: calc(var(--content-spacing) / 2);
   font-weight: var(--font-weight);
+  z-index: 10;
+  pointer-events: none;
 `
 
 const BlockItem = ({ data }) => {

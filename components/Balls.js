@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import Ring from 'components/Ring'
+import { breakpoint } from 'utils/mixins'
+import { useMediaQueries } from 'hooks/useMediaQueries'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -8,10 +10,17 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 2;
+  overflow: hidden;
+
+  ${breakpoint.lessThan('medium')`
+    z-index; -1;
+  `}
 `
 
 const Balls = () => {
-  const n = 80 // Or something else
+  const mq = useMediaQueries()
+
+  const n = mq.width < 1000 ? 20 : 100
 
   return (
     <Wrapper>

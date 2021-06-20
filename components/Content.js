@@ -25,6 +25,8 @@ const Wrapper = styled.div`
   a {
     color: var(--color-red);
     font-weight: var(--font-weight);
+    position: relative;
+    z-index: 1000;
 
     &:hover {
       color: var(--color-black);

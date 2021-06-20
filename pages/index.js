@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 `
 
 const Ring = styled.div`
+  --mouseX: -500;
   width: 30vw;
   height: 30vw;
   background-color: var(--color-red);
@@ -34,6 +35,8 @@ const Title = styled.h1`
   justify-content: center;
   position: relative;
   font-weight: var(--font-weight);
+  z-index: 10;
+  pointer-events: none;
 
   span {
     font-size: var(--fz-1);
@@ -58,6 +61,8 @@ const Subtitle = styled.h2`
   grid-column-end: 10;
   margin-bottom: var(--content-spacing);
   font-weight: var(--font-weight);
+  z-index: 10;
+  pointer-events: none;
 
   ${breakpoint.lessThan('medium')`
     grid-column-start: 1;
@@ -73,8 +78,6 @@ const Index = ({ data }) => {
   useEffect(() => {
     document.documentElement.style.setProperty('--font-weight', weight)
   })
-
-  console.log(data)
 
   return (
     <Wrapper>
