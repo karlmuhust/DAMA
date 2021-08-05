@@ -1,28 +1,28 @@
-const GRAPHCMS_URL = process.env.GRAPHCMS_URL;
+const GRAPHCMS_URL = process.env.GRAPHCMS_URL
 
 async function fetchAPI({ query } = {}) {
-	const headers = { 'Content-Type': 'application/json' };
+  const headers = { 'Content-Type': 'application/json' }
 
-	const res = await fetch(GRAPHCMS_URL, {
-		method: 'POST',
-		headers,
-		body: JSON.stringify({
-			query,
-		}),
-	});
+  const res = await fetch(GRAPHCMS_URL, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      query,
+    }),
+  })
 
-	const json = await res.json();
+  const json = await res.json()
 
-	if (json.errors) {
-		console.error(json.errors);
-		throw new Error('Failed to fetch API', { query });
-	}
+  if (json.errors) {
+    console.error(json.errors)
+    throw new Error('Failed to fetch API', { query })
+  }
 
-	return json.data;
+  return json.data
 }
 
 export async function fetchFrontPageData() {
-	const query = `
+  const query = `
     query {
       page(where: {id: "ckq58d66gmlyb0b57pnw81z2l"}) {
         title
@@ -40,13 +40,73 @@ export async function fetchFrontPageData() {
         }
       }
     }
-  `;
+  `
 
-	const data = await fetchAPI({
-		query,
-	});
+  const data = await fetchAPI({
+    query,
+  })
 
-	if (data) {
-		return data;
-	}
+  if (data) {
+    return data
+  }
+}
+
+export async function fetchHistoryPageData() {
+  const query = `
+    query {
+      page(where: {id: "ckrd69os8qm120c64393drhys"}) {
+        title
+        content {
+          html
+        }
+        block {
+          __typename
+          ... on Block {
+            title
+            content {
+              html
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const data = await fetchAPI({
+    query,
+  })
+
+  if (data) {
+    return data
+  }
+}
+
+export async function fetchAboutPageData() {
+  const query = `
+    query {
+      page(where: {id: "ckrz1touo1qjy0c50j9ff61ty"}) {
+        title
+        content {
+          html
+        }
+        block {
+          __typename
+          ... on Block {
+            title
+            content {
+              html
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const data = await fetchAPI({
+    query,
+  })
+
+  if (data) {
+    return data
+  }
 }

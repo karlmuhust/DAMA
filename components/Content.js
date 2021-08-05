@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   }
 
   a {
-    color: var(--color-red);
+    color: var(--color-black);
     font-weight: var(--font-weight);
     position: relative;
     z-index: 1000;
@@ -31,6 +31,12 @@ const Wrapper = styled.div`
     &:hover {
       color: var(--color-black);
     }
+  }
+
+  img {
+    width: 100%;
+    margin: 0 auto 4vw;
+    height: auto;
   }
 
   ${breakpoint.lessThan('medium')`

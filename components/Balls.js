@@ -17,10 +17,12 @@ const Wrapper = styled.div`
   `}
 `
 
-const Balls = () => {
+const Balls = ({ amount = 100 }) => {
   const mq = useMediaQueries()
 
-  const n = mq.width < 1000 ? 20 : 100
+  const n = mq.width < 1000 ? 20 : amount
+
+  console.log(n, amount)
 
   return (
     <Wrapper>

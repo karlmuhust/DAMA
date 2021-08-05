@@ -4,6 +4,7 @@ import 'styles/fonts.css'
 import GlobalStyles from 'styles/GlobalStyles'
 import { MediaQueriesProvider } from 'context/mediaQuery'
 import { useMediaQueries } from 'hooks/useMediaQueries'
+import Header from 'components/Header'
 
 import Layout from 'components/Layout'
 
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <MediaQueriesProvider mediaQueries={mediaQueries}>
       <GlobalStyles />
+      <Header />
       <Layout>
         <Component {...pageProps} />
       </Layout>

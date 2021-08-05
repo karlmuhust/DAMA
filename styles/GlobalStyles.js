@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
     --color-red: #F31347;
     --color-blue: #6C6CEB;
     --color-black: #000000;
+    --color-white: #F6E8EA;
 
     ${breakpoint.greaterThan('medium')`
       --fz-1: 6vw;
