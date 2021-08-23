@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   `}
 `
 
-const Balls = ({ amount = 100 }) => {
+const Balls = ({ amount = 50 }) => {
   const mq = useMediaQueries()
 
   const n = mq.width < 1000 ? 20 : amount

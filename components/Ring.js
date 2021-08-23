@@ -45,7 +45,7 @@ const Ring = () => {
   const changePos = () => {
     setLeft(random(left - 200, left + 200))
     setTop(random(top - 200, top + 200))
-    setDiameter(random(100, mq.width < 1000 ? 100 : 400))
+    setDiameter(random(10, mq.width < 1000 ? 50 : 100))
     setFlip(!flip)
   }
 
