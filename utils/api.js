@@ -110,3 +110,33 @@ export async function fetchAboutPageData() {
     return data
   }
 }
+
+export async function fetchGrantPageData() {
+  const query = `
+    query {
+      page(where: {id: "cktcj69pk2d590c50rrtk3pck"}) {
+        title
+        content {
+          html
+        }
+        block {
+          __typename
+          ... on Block {
+            title
+            content {
+              html
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const data = await fetchAPI({
+    query,
+  })
+
+  if (data) {
+    return data
+  }
+}

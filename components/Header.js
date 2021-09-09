@@ -33,6 +33,9 @@ const Header = () => {
       <Link href="/history" passHref>
         History
       </Link>
+      <Link href="/grant" passHref>
+        Grant
+      </Link>
     </Wrapper>
   )
 }
