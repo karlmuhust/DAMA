@@ -88,10 +88,10 @@ const Index = ({ data }) => {
       </Title>
 
       <Grid>
-        <Subtitle> {data.page.title} </Subtitle>
-        <Content data={data.page.content.html} />
+        <Subtitle> {data?.page?.title} </Subtitle>
+        <Content data={data?.page?.content?.html} />
 
-        {data.page.block.map((item, index) => {
+        {data?.page?.block.map((item, index) => {
           return <BlockItem key={index} data={item} />
         })}
       </Grid>

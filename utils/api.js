@@ -24,7 +24,7 @@ async function fetchAPI({ query } = {}) {
 export async function fetchFrontPageData() {
   const query = `
     query {
-      page(where: {id: "ckq58d66gmlyb0b57pnw81z2l"}) {
+      page(where: {id: "ckzmoaors49ud0c02k0t8qc5t"}) {
         title
         content {
           html
