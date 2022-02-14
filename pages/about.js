@@ -95,7 +95,7 @@ const About = ({ data }) => {
       </Grid>
 
       <Title>
-        DAMA <span>30</span>
+        DAMA <span>31</span>
       </Title>
     </Wrapper>
   )

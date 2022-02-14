@@ -84,7 +84,7 @@ const Index = ({ data }) => {
       <Balls />
       <Ring style={{ '--mouseX': posX + 'px', '--mouseY': posY + 'px' }} />
       <Title>
-        DAMA <span>30</span>
+        DAMA <span>31</span>
       </Title>
 
       <Grid>
@@ -97,7 +97,7 @@ const Index = ({ data }) => {
       </Grid>
 
       <Title>
-        DAMA <span>30</span>
+        DAMA <span>31</span>
       </Title>
     </Wrapper>
   )
