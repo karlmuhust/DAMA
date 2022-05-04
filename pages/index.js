@@ -81,23 +81,22 @@ const Index = ({ data }) => {
 
   return (
     <Wrapper>
-      <Balls />
       <Ring style={{ '--mouseX': posX + 'px', '--mouseY': posY + 'px' }} />
+
       <Title>
-        DAMA <span>31</span>
+        {data.contentFields.mainTitle}
+        {data.contentFields.number && <span>{data.contentFields.number}</span>}
       </Title>
 
       <Grid>
-        <Subtitle> {data?.page?.title} </Subtitle>
-        <Content data={data?.page?.content?.html} />
-
-        {data?.page?.block.map((item, index) => {
+        {data?.contentFields?.flexibleContent.map((item, index) => {
           return <BlockItem key={index} data={item} />
         })}
       </Grid>
 
       <Title>
-        DAMA <span>31</span>
+        {data.contentFields.mainTitle}
+        {data.contentFields.number && <span>{data.contentFields.number}</span>}
       </Title>
     </Wrapper>
   )

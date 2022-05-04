@@ -24,17 +24,22 @@ async function fetchAPI({ query } = {}) {
 export async function fetchFrontPageData() {
   const query = `
     query {
-      page(where: {id: "ckzmoaors49ud0c02k0t8qc5t"}) {
+      page(id: "14", idType: DATABASE_ID) {
+        id
         title
-        content {
-          html
-        }
-        block {
-          __typename
-          ... on Block {
-            title
-            content {
-              html
+        frontpage_fields {
+          selectFrontpage {
+            ... on Page {
+              id
+              title
+              contentFields {
+                mainTitle
+                number
+                flexibleContent {
+                  title
+                  content
+                }
+              }
             }
           }
         }
@@ -47,29 +52,13 @@ export async function fetchFrontPageData() {
   })
 
   if (data) {
-    return data
+    return data.page.frontpage_fields.selectFrontpage
   }
 }
 
 export async function fetchHistoryPageData() {
   const query = `
-    query {
-      page(where: {id: "ckrd69os8qm120c64393drhys"}) {
-        title
-        content {
-          html
-        }
-        block {
-          __typename
-          ... on Block {
-            title
-            content {
-              html
-            }
-          }
-        }
-      }
-    }
+
   `
 
   const data = await fetchAPI({
@@ -111,21 +100,18 @@ export async function fetchAboutPageData() {
   }
 }
 
-export async function fetchGrantPageData() {
+export async function fetchPageData({ slug }) {
   const query = `
     query {
-      page(where: {id: "cktcj69pk2d590c50rrtk3pck"}) {
+      page(id: "${slug}", idType: URI) {
+        id
         title
-        content {
-          html
-        }
-        block {
-          __typename
-          ... on Block {
+        contentFields {
+          mainTitle
+          number
+          flexibleContent {
             title
-            content {
-              html
-            }
+            content
           }
         }
       }
@@ -137,6 +123,6 @@ export async function fetchGrantPageData() {
   })
 
   if (data) {
-    return data
+    return data.page
   }
 }

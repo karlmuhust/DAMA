@@ -15,11 +15,12 @@ const Wrapper = styled.div`
     margin-bottom: 1.3vw;
   }
 
-  h6 {
+  h3 {
     padding-top: calc(var(--content-spacing) / 2);
     padding-bottom: var(--content-spacing);
     font-size: 8vw;
     color: var(--color-red);
+    text-shadow: 5px 5px 0px var(--color-blue);
   }
 
   a {

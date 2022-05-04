@@ -18,7 +18,7 @@ const BlockItem = ({ data }) => {
   return (
     <>
       <Title>{data.title}</Title>
-      <Content data={data.content.html} />
+      <Content data={data.content} />
     </>
   )
 }

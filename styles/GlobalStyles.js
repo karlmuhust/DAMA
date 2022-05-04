@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
     ${breakpoint.greaterThan('medium')`
       --fz-1: 6vw;
-     --gutter: 2vw;
+      --gutter: 2vw;
       --font-size-base: 1.6vw;
     `}
   }

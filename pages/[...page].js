@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { useMousePos } from '../hooks/useMousePos'
-import { fetchHistoryPageData } from 'utils/api'
+import { fetchPageData } from 'utils/api'
 import { useMediaQueries } from 'hooks/useMediaQueries'
 import { useEffect } from 'react'
 import BlockItem from 'components/BlockItem'
 import Content from 'components/Content'
-import Balls from 'components/Balls'
+
 import { breakpoint } from 'utils/mixins'
 
 const Wrapper = styled.div`
@@ -70,7 +70,7 @@ const Subtitle = styled.h2`
   `}
 `
 
-const History = ({ data }) => {
+const About = ({ data }) => {
   const { posX, posY } = useMousePos()
   const mq = useMediaQueries()
 
@@ -81,28 +81,38 @@ const History = ({ data }) => {
 
   return (
     <Wrapper>
-      <Balls />
       <Ring style={{ '--mouseX': posX + 'px', '--mouseY': posY + 'px' }} />
-      <Title>History</Title>
+
+      <Title>
+        {data?.contentFields?.mainTitle}
+        {data?.contentFields?.number && (
+          <span>{data.contentFields.number}</span>
+        )}
+      </Title>
 
       <Grid>
-        <Subtitle> {data.page.title} </Subtitle>
-        <Content data={data.page.content.html} />
-
-        {data.page.block.map((item, index) => {
+        {data?.contentFields?.flexibleContent.map((item, index) => {
           return <BlockItem key={index} data={item} />
         })}
       </Grid>
 
       <Title>
-        DAMA <span>31</span>
+        {data?.contentFields?.mainTitle}
+        {data?.contentFields?.number && (
+          <span>{data.contentFields.number}</span>
+        )}
       </Title>
     </Wrapper>
   )
 }
 
-export async function getStaticProps() {
-  const data = await fetchHistoryPageData()
+export async function getStaticPaths() {
+  return { paths: [], fallback: true }
+}
+
+export async function getStaticProps({ params }) {
+  const slug = params.page
+  const data = await fetchPageData({ slug })
 
   return {
     props: {
@@ -112,4 +122,4 @@ export async function getStaticProps() {
   }
 }
 
-export default History
+export default About

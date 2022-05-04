@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { breakpoint } from 'utils/mixins'
 import { useEffect } from 'react'
+import Balls from 'components/Balls'
+import { useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Main = styled.main`
   position: relative;
@@ -9,6 +12,14 @@ const Main = styled.main`
 `
 
 const Layout = ({ children }) => {
+  const router = useRouter()
+  const [innerHeight, setInnerHeight] = useState(0)
+  const layout = useRef()
+
+  useEffect(() => {
+    setInnerHeight(document.documentElement.offsetHeight)
+  }, [router])
+
   useEffect(() => {
     function handleResize() {
       const vh = window.innerHeight * 0.01
@@ -21,7 +32,12 @@ const Layout = ({ children }) => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  return <Main>{children}</Main>
+  return (
+    <Main ref={layout}>
+      {children && <Balls vh={innerHeight} />}
+      {children}
+    </Main>
+  )
 }
 
 export default Layout
