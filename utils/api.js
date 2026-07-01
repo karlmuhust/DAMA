@@ -1,4 +1,5 @@
-const GRAPHCMS_URL = process.env.GRAPHCMS_URL
+const GRAPHCMS_URL =
+  process.env.GRAPHCMS_URL || process.env.NEXT_PUBLIC_WP_GRAPHQL
 
 const FETCH_TIMEOUT_MS = 10000
 
