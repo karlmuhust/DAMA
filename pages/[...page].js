@@ -106,19 +106,28 @@ const About = ({ data }) => {
   )
 }
 
+const KNOWN_PAGES = ['about', 'history', 'grant']
+
 export async function getStaticPaths() {
-  return { paths: [], fallback: true }
+  return {
+    paths: KNOWN_PAGES.map((page) => ({ params: { page: [page] } })),
+    fallback: 'blocking',
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const slug = params.page
+  const slug = Array.isArray(params.page) ? params.page.join('/') : params.page
   const data = await fetchPageData({ slug })
+
+  if (!data?.contentFields) {
+    return { notFound: true, revalidate: 60 }
+  }
 
   return {
     props: {
       data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   }
 }
 

@@ -105,11 +105,15 @@ const Index = ({ data }) => {
 export async function getStaticProps() {
   const data = await fetchFrontPageData()
 
+  if (!data?.contentFields) {
+    return { notFound: true, revalidate: 60 }
+  }
+
   return {
     props: {
       data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   }
 }
 

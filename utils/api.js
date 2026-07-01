@@ -1,7 +1,11 @@
 const GRAPHCMS_URL = process.env.GRAPHCMS_URL
 
+const FETCH_TIMEOUT_MS = 10000
+
 async function fetchAPI({ query } = {}) {
   const headers = { 'Content-Type': 'application/json' }
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
 
   const res = await fetch(GRAPHCMS_URL, {
     method: 'POST',
@@ -9,7 +13,8 @@ async function fetchAPI({ query } = {}) {
     body: JSON.stringify({
       query,
     }),
-  })
+    signal: controller.signal,
+  }).finally(() => clearTimeout(timeout))
 
   const json = await res.json()
 
